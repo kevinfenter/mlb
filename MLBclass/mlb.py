@@ -1,3 +1,8 @@
+from datetime import date
+today = date.today()
+print("-----Today's date:", today, "-----")
+
+
 class Team:
     def __init__(self, name, wins, losses):
         self.name = name
