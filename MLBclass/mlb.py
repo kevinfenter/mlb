@@ -19,6 +19,14 @@ class Team:
     def total_played(self):
         return "{} {}".format(self.name, self.wins + self.losses)
 
+    # def best_team(self):
+    #     most_wins = wins[0]
+    #     for z in wins:
+    #         if z > most_wins:
+    #             most_wins = z
+    #     return most_wins
+    # print("the best team is:", best_team(wins))
+
 
 # NL Central
 cubs = Team("Chicago Cubs      ", 38, 30)
@@ -114,8 +122,61 @@ def allstandings():
     print(rangers.standings())
 
 
-selection = input("press 2 for standings ")
-if selection == "2":
+selection = input("enter 1 for all standings or type in specific team ")
+if selection == "1":
     print(allstandings())
+elif selection == "cubs":
+    print(cubs.standings())
+elif selection == "brewers":
+    print(brewers.standings())
+elif selection == "reds":
+    print(reds.standings())
+elif selection == "cardinals":
+    print(cards.standings())
+elif selection == "pirates":
+    print(pirates.standings())
+elif selection == "mets":
+    print(mets.standings())
+elif selection == "phillies":
+    print(phillies.standings())
+elif selection == "nationals":
+    print(nats.standings())
+elif selection == "braves":
+    print(braves.standings())
+elif selection == "marlins":
+    print(marlins.standings())
+elif selection == "giants":
+    print(giants.standings())
+elif selection == "dodgers":
+    print(dodgers.standings())
+elif selection == "padres":
+    print(padres.standings())
+elif selection == "rockies":
+    print(rockies.standings())
+elif selection == "diamondbacks":
+    print(dbacks.standings())
+elif selection == "dbacks":
+    print(dbacks.standings())
+elif selection == "rays":
+    print(rays.standings())
+elif selection == "redsox":
+    print(redsox.standings())
+elif selection == "yankees":
+    print(yankees.standings())
+elif selection == "bluejays":
+    print(jays.standings())
+elif selection == "orioles":
+    print(orioles.standings())
+elif selection == "whitesox":
+    print(whitesox.standings())
+elif selection == "indians":
+    print(indians.standings())
+elif selection == "roayls":
+    print(royals.standings())
+elif selection == "tigers":
+    print(tigers.standings())
+elif selection == "twins":
+    print(twins.standings())
+
 else:
     print("that is incorrect _  now you have a virus")
