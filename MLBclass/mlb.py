@@ -3,21 +3,38 @@ now = datetime.datetime.now()
 print("(standings as of): ")
 print(now.strftime(" --- %Y-%m-%d %H:%M:%S  ---"))
 
+total_games = 162
+
 
 class Team:
     def __init__(self, name, wins, losses):
         self.name = name
         self.wins = wins
         self.losses = losses
-        self.pct = wins / losses
 
-    total_games = 162
-
-    def standings(self):
+    def get_standings(self):
         return "{} {} {}".format(self.name, self.wins, self.losses)
 
-    def total_played(self):
-        return "{} {}".format(self.name, self.wins + self.losses)
+    def get_wins(self):
+        return self.wins
+
+
+class Standings:
+    def __init__(self, name, max_teams):
+        self.name = name
+        self.max_teams = max_teams
+        self.teams = []
+
+    def add_team(self, team):
+        if len(self.teams) < self.max_teams:
+            self.teams.append(team)
+            return True
+        return False
+
+    def average_wins(self):
+        avg = 0
+        for team in self.teams:
+            avg += team.get_wins()
 
     # def best_team(self):
     #     most_wins = wins[0]
@@ -122,61 +139,65 @@ def allstandings():
     print(rangers.standings())
 
 
-selection = input("enter 1 for all standings or type in specific team ")
-if selection == "1":
-    print(allstandings())
-elif selection == "cubs":
-    print(cubs.standings())
-elif selection == "brewers":
-    print(brewers.standings())
-elif selection == "reds":
-    print(reds.standings())
-elif selection == "cardinals":
-    print(cards.standings())
-elif selection == "pirates":
-    print(pirates.standings())
-elif selection == "mets":
-    print(mets.standings())
-elif selection == "phillies":
-    print(phillies.standings())
-elif selection == "nationals":
-    print(nats.standings())
-elif selection == "braves":
-    print(braves.standings())
-elif selection == "marlins":
-    print(marlins.standings())
-elif selection == "giants":
-    print(giants.standings())
-elif selection == "dodgers":
-    print(dodgers.standings())
-elif selection == "padres":
-    print(padres.standings())
-elif selection == "rockies":
-    print(rockies.standings())
-elif selection == "diamondbacks":
-    print(dbacks.standings())
-elif selection == "dbacks":
-    print(dbacks.standings())
-elif selection == "rays":
-    print(rays.standings())
-elif selection == "redsox":
-    print(redsox.standings())
-elif selection == "yankees":
-    print(yankees.standings())
-elif selection == "bluejays":
-    print(jays.standings())
-elif selection == "orioles":
-    print(orioles.standings())
-elif selection == "whitesox":
-    print(whitesox.standings())
-elif selection == "indians":
-    print(indians.standings())
-elif selection == "roayls":
-    print(royals.standings())
-elif selection == "tigers":
-    print(tigers.standings())
-elif selection == "twins":
-    print(twins.standings())
+def main_menu():
+    selection = input("enter 1 for all standings or type in specific team ")
+    if selection == "1":
+        print(allstandings())
+    elif selection == "cubs":
+        print(cubs.standings())
+    elif selection == "brewers":
+        print(brewers.standings())
+    elif selection == "reds":
+        print(reds.standings())
+    elif selection == "cardinals":
+        print(cards.standings())
+    elif selection == "pirates":
+        print(pirates.standings())
+    elif selection == "mets":
+        print(mets.standings())
+    elif selection == "phillies":
+        print(phillies.standings())
+    elif selection == "nationals":
+        print(nats.standings())
+    elif selection == "braves":
+        print(braves.standings())
+    elif selection == "marlins":
+        print(marlins.standings())
+    elif selection == "giants":
+        print(giants.standings())
+    elif selection == "dodgers":
+        print(dodgers.standings())
+    elif selection == "padres":
+        print(padres.standings())
+    elif selection == "rockies":
+        print(rockies.standings())
+    elif selection == "diamondbacks":
+        print(dbacks.standings())
+    elif selection == "dbacks":
+        print(dbacks.standings())
+    elif selection == "rays":
+        print(rays.standings())
+    elif selection == "redsox":
+        print(redsox.standings())
+    elif selection == "yankees":
+        print(yankees.standings())
+    elif selection == "bluejays":
+        print(jays.standings())
+    elif selection == "orioles":
+        print(orioles.standings())
+    elif selection == "whitesox":
+        print(whitesox.standings())
+    elif selection == "indians":
+        print(indians.standings())
+    elif selection == "roayls":
+        print(royals.standings())
+    elif selection == "tigers":
+        print(tigers.standings())
+    elif selection == "twins":
+        print(twins.standings())
+    else:
+        print("that is incorrect _  now you have a virus")
+    return selection
 
-else:
-    print("that is incorrect _  now you have a virus")
+
+main_menu()
